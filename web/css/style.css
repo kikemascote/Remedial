@@ -5,11 +5,17 @@ body {
     background-color: rgba(30, 144, 255, 0.9);
     background-position: center;
 }
-
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
 #mainbody {
 
 }
-
+#admh1{
+    color: whitesmoke;
+}
 #maindiv {
     margin: 5%;
     display: flex;
@@ -26,7 +32,27 @@ body {
     border-radius: 30px;
     color: whitesmoke;
     text-align: center;
-    font-family: "Roboto";
+    font-family: Roboto, sans-serif;
+}
+
+#formbody{
+width: fit-content;
+}
+
+#formcontainer{
+    padding-top: 5%;
+    display: table-cell;
+    width: 50%;
+    background-color: rgba(118,118,118,0.8);
+    color: whitesmoke;
+    text-align: left;
+    font-family: Roboto, sans-serif;
+}
+
+#formdiv{
+ color: whitesmoke;
+    border-radius: 5px;
+    text-align: left;
 }
 
 input[type=text], input[type=password] {
@@ -36,11 +62,27 @@ input[type=text], input[type=password] {
     border-radius: 50px;
 }
 
-input[type=submit] {
+/*input[type=submit] {
     border-radius: 2px;
     width: 125px;
     height: 30px;
     padding-bottom: 5%;
     font-family: "Roboto Black";
     font-size: large;
+}*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+td,
+th {
+    padding: 0;
 }
