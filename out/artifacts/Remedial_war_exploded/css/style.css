@@ -1,0 +1,46 @@
+body {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/remedial-progra.appspot.com/o/fondo-mecanico.jpg?alt=media&token=2ec365bd-ac58-431c-b167-24bca328cb47");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(30, 144, 255, 0.9);
+    background-position: center;
+}
+
+#mainbody {
+
+}
+
+#maindiv {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    padding-top: 5%;
+    display: table-cell;
+    background-color: rgba(118, 118, 118, 0.75);
+    width: 300px;
+    height: 400px;
+    border-radius: 30px;
+    color: whitesmoke;
+    text-align: center;
+    font-family: "Roboto";
+}
+
+input[type=text], input[type=password] {
+    margin-left: 20px;
+    padding-left: 10px;
+    height: 15px;
+    border-radius: 50px;
+}
+
+input[type=submit] {
+    border-radius: 2px;
+    width: 125px;
+    height: 30px;
+    padding-bottom: 5%;
+    font-family: "Roboto Black";
+    font-size: large;
+}
