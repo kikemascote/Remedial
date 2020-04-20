@@ -1,5 +1,6 @@
 package controlador;
 
+import com.google.gson.JsonArray;
 import dao.JsonTools;
 import modelo.CarrosModel;
 import modelo.UserModel;
@@ -17,7 +18,7 @@ import java.util.List;
 @WebServlet(name = "AdminServlet", urlPatterns = {"/AdminServlet"})
 public class AdminServlet extends HttpServlet {
     List<UserModel> users;
-    List<CarrosModel> auto; //lista para llenar los datos
+    JsonArray auto; //lista para llenar los datos
     JsonTools jReader = new JsonTools();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -156,10 +157,10 @@ public class AdminServlet extends HttpServlet {
             out.println("  </tr>");
             out.println();
 
-            for (int i = 0; i < users.size(); i++) {
+            for (int i = 0; i < auto.size(); i++) {
 //            auto.forEach(out::println);
                 out.println("<tr>");
-                out.println("  <td class=\"tg-0lax\">" + users.get(i).getNombre() + "</td>");
+                out.println("  <td class=\"tg-0lax\">" + auto.get(i).getAsString() + "</td>");
                 out.println("  <td class=\"tg-0lax\">" + users.get(i).getUsuario() + "</td>");
                 out.println("  <td class=\"tg-0lax\">" + users.get(i).getTipo() + "</td>");
                 out.println("  <td class=\"tg-0lax\"><a href=\"detalle?id=" + i + "\">VER</a></td>");

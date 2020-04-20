@@ -69,7 +69,7 @@ public class ValidaServlet extends HttpServlet {
                             response.sendRedirect("AdminServlet");
                             break;
                         case 2:
-                            response.sendRedirect("UserServlet");
+                            response.sendRedirect("UsuarioServlet");
                             break;
                         case 3:
                             response.sendRedirect("InvitadoServlet");

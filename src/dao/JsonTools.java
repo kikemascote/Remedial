@@ -3,7 +3,6 @@ package dao;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonWriter;
-import modelo.CarrosModel;
 import modelo.UserModel;
 
 import java.io.IOException;
@@ -15,11 +14,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 public class JsonTools {
     static final String USER_DAO = "https://remedial-progra.firebaseio.com/usuarios.json";
+    static final String AUTOS_DAO = "https://remedial-progra.firebaseio.com/autos.json";
     private static final String API_KEY = "AIzaSyCzEbhKQdDUiYtM0L_gQjjo9p0QnEsXWhQ";
 
     public List<UserModel> jsonUserReader() throws IOException {
@@ -75,7 +74,7 @@ public class JsonTools {
         System.out.println("Data written to file");
     }
 
-    public List<CarrosModel> jsonAutoReader()
+    /*public List<CarrosModel> jsonAutoReader()
             throws IOException {
         String fileName = "src/resources/cars.json";
         Path path = Paths.get(fileName);
@@ -88,7 +87,8 @@ public class JsonTools {
             Gson gson =new Gson();
             lista = gson.fromJson(reader, new TypeToken<List<CarrosModel>>(){}.getType());
 
-           /* JsonArray array = tree.getAsJsonArray();
+           */
+    /* JsonArray array = tree.getAsJsonArray();
 
             //bloque de prueba
             for (JsonElement element : array) {
@@ -110,12 +110,29 @@ public class JsonTools {
                 }
             }
             //fin bloque de prueba*/
+    /*
 
             lista.forEach(System.out::println);
             return lista;
 
         }
 
+    }*/
+    public JsonArray jsonAutoReader() throws IOException {
+        try (InputStream inputStream = new URL(AUTOS_DAO).openStream();
+             Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+
+            JsonParser parser = new JsonParser();
+            JsonElement tree = parser.parse(reader);
+
+            JsonArray array = tree.getAsJsonArray();
+
+            return array;
+            //Gson gson = new Gson();
+
+            //return gson.fromJson(array., new TypeToken<List<CarrosModel>>() {
+            //}.getType());
+        }
     }
 
 }
