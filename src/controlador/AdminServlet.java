@@ -3,6 +3,7 @@ package controlador;
 import com.google.gson.JsonArray;
 import dao.JsonTools;
 import modelo.CarrosModel;
+import modelo.PartesModel;
 import modelo.UserModel;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -18,7 +19,7 @@ import java.util.List;
 @WebServlet(name = "AdminServlet", urlPatterns = {"/AdminServlet"})
 public class AdminServlet extends HttpServlet {
     List<UserModel> users;
-    JsonArray auto; //lista para llenar los datos
+    List<CarrosModel> auto; //lista para llenar los datos
     JsonTools jReader = new JsonTools();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -160,11 +161,11 @@ public class AdminServlet extends HttpServlet {
             for (int i = 0; i < auto.size(); i++) {
 //            auto.forEach(out::println);
                 out.println("<tr>");
-                out.println("  <td class=\"tg-0lax\">" + auto.get(i).getAsString() + "</td>");
-                out.println("  <td class=\"tg-0lax\">" + users.get(i).getUsuario() + "</td>");
-                out.println("  <td class=\"tg-0lax\">" + users.get(i).getTipo() + "</td>");
-                out.println("  <td class=\"tg-0lax\"><a href=\"detalle?id=" + i + "\">VER</a></td>");
-                out.println("  <td class=\"tg-23dq\"><a href=\"eliminar?id=" + i + "\">X</a></td>");
+                out.println("  <td class=\"tg-0lax\">" + auto.get(i).getMarca() + "</td>");
+                out.println("  <td class=\"tg-0lax\">" + auto.get(i).getLinea() + "</td>");
+                out.println("  <td class=\"tg-0lax\">" + auto.get(i).getModelo() + "</td>");
+                out.println("  <td class=\"tg-0lax\"><a href=\"/detalle?id=" + i + "\">VER</a></td>");
+                out.println("  <td class=\"tg-23dq\"><a href=\"/eliminar?id=" + i + "\">X</a></td>");
                 out.println("</tr>");
             }
             out.println("</table>");

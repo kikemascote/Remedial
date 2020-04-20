@@ -1,8 +1,10 @@
 package controlador;
 
+import autovalue.shaded.com.google$.common.collect.$ForwardingList;
 import com.google.gson.JsonArray;
 import dao.JsonTools;
 import modelo.CarrosModel;
+import modelo.PartesModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +17,7 @@ import java.util.List;
 
 @WebServlet(name = "InvitadoServlet", urlPatterns = "/InvitadoServlet")
 public class InvitadoServlet extends HttpServlet {
-    JsonArray autos;
+    List<CarrosModel> autos;
     JsonTools jReader = new JsonTools();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -34,8 +36,8 @@ public class InvitadoServlet extends HttpServlet {
             //for para llenar tabla
             for (int i=0; i<autos.size(); i++) {
                 out.println("  <tr>");
-                out.println("    <td>"+autos.get(i).getAsString()+"</td>");
-                out.println("    <td></td>");
+                out.println("    <td>"+autos.get(i).getMarca()+"</td>");
+                out.println("    <td>"+autos.get(i).getLinea()+"</td>");
                 out.println("    <td></td>");
                 out.println("    <td></td>");
                 out.println("  </tr>");

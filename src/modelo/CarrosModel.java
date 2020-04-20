@@ -24,7 +24,40 @@ public class CarrosModel {
             modelo,
             descripcion,
             url;
-    List<PartesModel> partes;
+    String parte1, parte2, parte3, parte4;
+
+    public String getParte1() {
+        return parte1;
+    }
+
+    public void setParte1(String parte1) {
+        this.parte1 = parte1;
+    }
+
+    public String getParte2() {
+        return parte2;
+    }
+
+    public void setParte2(String parte2) {
+        this.parte2 = parte2;
+    }
+
+    public String getParte3() {
+        return parte3;
+    }
+
+    public void setParte3(String parte3) {
+        this.parte3 = parte3;
+    }
+
+    public String getParte4() {
+        return parte4;
+    }
+
+    public void setParte4(String parte4) {
+        this.parte4 = parte4;
+    }
+//List<PartesModel> partes;
 
     /*@Override
     public String toString() {
@@ -74,22 +107,9 @@ public class CarrosModel {
 //        this.options = options;
 //    }
 
-    public CarrosModel(String marca, String linea, String modelo, List<PartesModel> partes, String descripcion, String url) {
-        this.marca = marca;
-        this.linea = linea;
-        this.modelo = modelo;
-        this.partes = partes;
-        this.descripcion = descripcion;
-        this.url = url;
-    }
 
-    public List<PartesModel> getPartes() {
-        return partes;
-    }
 
-    public void setPartes(List<PartesModel> partes) {
-        this.partes = partes;
-    }
+
 
     public String getMarca() {
         return marca;

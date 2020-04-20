@@ -3,12 +3,15 @@ package dao;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonWriter;
+import modelo.CarrosModel;
+import modelo.PartesModel;
 import modelo.UserModel;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.reflect.ParameterizedType;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,6 +23,8 @@ public class JsonTools {
     static final String USER_DAO = "https://remedial-progra.firebaseio.com/usuarios.json";
     static final String AUTOS_DAO = "https://remedial-progra.firebaseio.com/autos.json";
     private static final String API_KEY = "AIzaSyCzEbhKQdDUiYtM0L_gQjjo9p0QnEsXWhQ";
+
+
 
     public List<UserModel> jsonUserReader() throws IOException {
         try (InputStream inputStream = new URL(USER_DAO).openStream();
@@ -118,20 +123,23 @@ public class JsonTools {
         }
 
     }*/
-    public JsonArray jsonAutoReader() throws IOException {
+    public List<CarrosModel> jsonAutoReader() throws IOException {
         try (InputStream inputStream = new URL(AUTOS_DAO).openStream();
              Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
 
             JsonParser parser = new JsonParser();
             JsonElement tree = parser.parse(reader);
+            List<PartesModel> ins;
 
             JsonArray array = tree.getAsJsonArray();
 
-            return array;
-            //Gson gson = new Gson();
+//            return array;
+            Gson gson = new Gson();
+//            ins = gson.fromJson(reader, new TypeToken<List<PartesModel>>(){}.getType());
+//            ins.forEach(System.out::println);
 
-            //return gson.fromJson(array., new TypeToken<List<CarrosModel>>() {
-            //}.getType());
+            return gson.fromJson(reader, new TypeToken<List<CarrosModel>>() {
+            }.getType());
         }
     }
 

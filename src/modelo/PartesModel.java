@@ -1,10 +1,14 @@
 package modelo;
 
-public class PartesModel {
+import java.util.List;
+
+public class PartesModel extends CarrosModel {
     String parte1,
             parte2,
             parte3,
             parte4;
+
+
 
     public String getParte1() {
         return parte1;
